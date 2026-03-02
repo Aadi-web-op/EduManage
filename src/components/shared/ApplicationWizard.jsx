@@ -51,7 +51,6 @@ export const ApplicationWizard = ({ event, onClose }) => {
     const { isDark } = useContext(ThemeContext);
     const { teamMembers } = useContext(AppContext);
 
-    const handleNext = () => changeStep(Math.min(step + 1, totalSteps));
     const handlePrev = () => changeStep(Math.max(step - 1, 1));
 
     const changeStep = (newStep) => {
