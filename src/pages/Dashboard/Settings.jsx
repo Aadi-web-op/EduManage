@@ -13,7 +13,7 @@ export default function SettingsView() {
   ];
 
   return (
-    <div className="p-10 max-w-5xl mx-auto space-y-8 relative z-10">
+    <div className="p-4 md:p-10 max-w-5xl mx-auto space-y-6 md:space-y-8 relative z-10">
       <div className="flex flex-col md:flex-row gap-8">
         <Card hover={false} className="w-full md:w-64 shrink-0 p-4 h-fit border-none shadow-none bg-white/40 dark:bg-slate-900/20">
           <nav className="flex flex-col space-y-2">
@@ -22,8 +22,8 @@ export default function SettingsView() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`text-left px-4 py-3 rounded-xl transition-all font-semibold ${activeTab === tab.id
-                    ? 'bg-[#6A89A7] text-white shadow-md shadow-[#6A89A7]/20'
-                    : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-800'
+                  ? 'bg-[#6A89A7] text-white shadow-md shadow-[#6A89A7]/20'
+                  : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-800'
                   }`}
               >
                 {tab.label}

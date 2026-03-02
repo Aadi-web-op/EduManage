@@ -28,11 +28,11 @@ export default function DashboardEvents() {
   };
 
   return (
-    <div className="p-10 max-w-[1400px] mx-auto space-y-10 relative z-10">
+    <div className="p-4 md:p-10 max-w-[1400px] mx-auto space-y-6 md:space-y-10 relative z-10">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div className="max-w-xl">
           <p className="text-[#6A89A7] font-bold tracking-wide uppercase text-sm mb-2">Platform Hub</p>
-          <h2 className="text-4xl font-extrabold text-[#384959] dark:text-white tracking-tight leading-tight">Discover Opportunities</h2>
+          <h2 className="text-2xl md:text-4xl font-extrabold text-[#384959] dark:text-white tracking-tight leading-tight">Discover Opportunities</h2>
         </div>
         <div className="flex flex-wrap gap-3">
           <DropdownMenu>

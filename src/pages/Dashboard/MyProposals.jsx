@@ -6,9 +6,9 @@ import { MOCK_PROPOSALS } from '../../data/mockData';
 
 export default function ProposalsList() {
   return (
-    <div className="p-10 max-w-5xl mx-auto space-y-8">
+    <div className="p-4 md:p-10 max-w-5xl mx-auto space-y-6 md:space-y-8">
       <div>
-        <h2 className="text-4xl font-extrabold text-[#384959] dark:text-white tracking-tight">Active Submissions</h2>
+        <h2 className="text-2xl md:text-4xl font-extrabold text-[#384959] dark:text-white tracking-tight">Active Submissions</h2>
       </div>
 
       <div className="space-y-6">
@@ -47,7 +47,7 @@ export default function ProposalsList() {
                     animate={{ width: `${proposal.progress}%` }}
                     transition={{ duration: 1, delay: 0.5 }}
                     className={`h-full rounded-full ${proposal.status === 'Accepted' ? 'bg-[#88BDF2]' :
-                        proposal.status === 'Rejected' ? 'bg-rose-500' : 'bg-[#6A89A7]'
+                      proposal.status === 'Rejected' ? 'bg-rose-500' : 'bg-[#6A89A7]'
                       }`}
                   />
                 </div>

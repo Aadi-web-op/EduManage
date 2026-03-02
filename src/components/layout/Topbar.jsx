@@ -20,9 +20,9 @@ export const Topbar = () => {
     const unreadCount = notifications.filter(n => !n.read).length;
 
     return (
-        <header className="h-24 sticky top-0 z-40 flex items-center justify-between px-10">
+        <header className="h-24 sticky top-0 z-40 flex items-center justify-between px-4 md:px-10">
             <div>
-                <h1 className="text-3xl font-extrabold text-[#384959] dark:text-white capitalize tracking-tight">
+                <h1 className="text-xl md:text-3xl font-extrabold text-[#384959] dark:text-white capitalize tracking-tight">
                     {breadcrumbs[currentView]}
                 </h1>
             </div>
@@ -37,7 +37,7 @@ export const Topbar = () => {
                     />
                 </div>
 
-                <div className="flex items-center gap-3 relative">
+                <div className="flex items-center gap-2 md:gap-3 relative">
                     <button onClick={toggleTheme} className="w-10 h-10 flex items-center justify-center bg-white/60 dark:bg-slate-900/40 backdrop-blur-md border border-white/50 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:text-[#6A89A7] rounded-full transition-all shadow-sm hover:scale-105 active:scale-95">
                         {isDark ? <Sun size={18} /> : <Moon size={18} />}
                     </button>

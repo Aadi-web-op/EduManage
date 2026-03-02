@@ -22,16 +22,16 @@ export default function TeamManager() {
   };
 
   return (
-    <div className="p-10 max-w-5xl mx-auto space-y-8">
-      <div className="flex justify-between items-end">
+    <div className="p-4 md:p-10 max-w-5xl mx-auto space-y-6 md:space-y-8">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h2 className="text-4xl font-extrabold text-[#384959] dark:text-white tracking-tight">Team Roster</h2>
+          <h2 className="text-2xl md:text-4xl font-extrabold text-[#384959] dark:text-white tracking-tight">Team Roster</h2>
         </div>
-        <Button onClick={() => setIsAdding(true)}><Plus size={18} /> Add Member</Button>
+        <Button onClick={() => setIsAdding(true)} className="w-full md:w-auto"><Plus size={18} /> Add Member</Button>
       </div>
 
       <Card hover={false} className="overflow-hidden !p-0">
-        <div className="grid grid-cols-12 gap-4 p-5 border-b border-white/50 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 text-xs font-bold text-[#384959] dark:text-slate-400 uppercase tracking-wider">
+        <div className="hidden md:grid grid-cols-12 gap-4 p-5 border-b border-white/50 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 text-xs font-bold text-[#384959] dark:text-slate-400 uppercase tracking-wider">
           <div className="col-span-5">Member</div>
           <div className="col-span-3">Role</div>
           <div className="col-span-3">Department</div>
@@ -45,9 +45,9 @@ export default function TeamManager() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="grid grid-cols-12 gap-4 p-5 items-center hover:bg-white/50 dark:hover:bg-white/5 transition-colors group cursor-pointer"
+              className="flex flex-col md:grid md:grid-cols-12 gap-4 p-5 md:items-center hover:bg-white/50 dark:hover:bg-white/5 transition-colors group cursor-pointer relative"
             >
-              <div className="col-span-5 flex items-center gap-5">
+              <div className="md:col-span-5 flex items-center gap-5">
                 <div className="relative">
                   <img src={member.avatar} alt={member.name} className="w-12 h-12 rounded-2xl object-cover shadow-sm border border-white dark:border-slate-700" />
                   {member.role?.includes('Principal') && (
@@ -61,14 +61,14 @@ export default function TeamManager() {
                   <p className="text-sm text-slate-500 font-medium">{member.email}</p>
                 </div>
               </div>
-              <div className="col-span-3">
-                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{member.role}</span>
+              <div className="md:col-span-3">
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300"><span className="md:hidden text-xs text-slate-400 uppercase mr-2">Role:</span>{member.role}</span>
               </div>
-              <div className="col-span-3">
+              <div className="md:col-span-3">
                 <Badge variant="primary">{member.department}</Badge>
               </div>
-              <div className="col-span-1 flex justify-end">
-                <Button variant="danger" size="sm" className="opacity-0 group-hover:opacity-100" onClick={() => removeTeamMember(member.id)}>
+              <div className="absolute top-4 right-4 md:static md:col-span-1 flex justify-end">
+                <Button variant="danger" size="sm" className="opacity-100 md:opacity-0 group-hover:opacity-100" onClick={() => removeTeamMember(member.id)}>
                   <Trash2 size={16} />
                 </Button>
               </div>

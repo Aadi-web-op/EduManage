@@ -29,7 +29,7 @@ export default function DashboardLayout() {
 
       <Sidebar />
 
-      <div className="flex-1 flex flex-col min-w-0 relative pl-[80px] z-10">
+      <div className="flex-1 flex flex-col min-w-0 relative pl-0 md:pl-[80px] pb-[88px] md:pb-0 z-10">
         <Topbar />
         <main id="main-scroll-container" onScroll={handleScroll} className="flex-1 overflow-y-auto custom-scrollbar relative pb-20 scroll-smooth">
           <AnimatePresence mode="wait">
