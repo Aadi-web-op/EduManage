@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Rocket, FileText, Users, Settings, LogOut, Zap } from 'lucide-react';
 import { AppContext } from '../../contexts/AppContext';
@@ -6,6 +6,14 @@ import { AppContext } from '../../contexts/AppContext';
 export const Sidebar = () => {
     const { currentView, setView, logout } = useContext(AppContext);
     const [isCollapsed, setCollapsed] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const navItems = [
         { id: 'events', label: 'Live Events', icon: Rocket },
@@ -16,11 +24,11 @@ export const Sidebar = () => {
 
     return (
         <motion.aside
-            onMouseEnter={() => setCollapsed(false)}
-            onMouseLeave={() => setCollapsed(true)}
+            onMouseEnter={() => !isMobile && setCollapsed(false)}
+            onMouseLeave={() => !isMobile && setCollapsed(true)}
             initial={false}
-            animate={{ width: isCollapsed ? 80 : 280 }}
-            className="fixed max-md:bottom-0 max-md:top-auto max-md:left-0 max-md:w-full max-md:h-[88px] max-md:flex-row md:top-0 md:left-0 z-50 flex flex-col md:h-screen bg-white/60 dark:bg-[#1a1c23]/80 backdrop-blur-2xl border-t md:border-t-0 md:border-r border-white/40 dark:border-white/5 transition-all duration-400 ease-out shadow-[0_-12px_51px_rgba(0,0,0,0.05)] md:shadow-[12px_0_51px_rgba(0,0,0,0.05)]"
+            animate={{ width: isMobile ? '100%' : (isCollapsed ? 80 : 280) }}
+            className="fixed max-md:bottom-0 max-md:top-auto max-md:left-0 max-md:!w-full max-md:h-[88px] max-md:flex-row md:top-0 md:left-0 z-50 flex flex-col md:h-screen bg-white/60 dark:bg-[#1a1c23]/80 backdrop-blur-2xl border-t md:border-t-0 md:border-r border-white/40 dark:border-white/5 transition-all duration-400 ease-out shadow-[0_-12px_51px_rgba(0,0,0,0.05)] md:shadow-[12px_0_51px_rgba(0,0,0,0.05)]"
         >
             <div className="hidden md:flex items-center p-6 h-24 overflow-hidden shrink-0">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#384959] to-[#6A89A7] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#6A89A7]/30">
