@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeContext } from './contexts/ThemeContext';
 import { AppContext } from './contexts/AppContext';
 import { MOCK_NOTIFICATIONS, MOCK_TEAM } from './data/mockData';
@@ -70,6 +71,7 @@ export default function App() {
             <ApplicationWizard event={selectedEvent} onClose={() => setSelectedEvent(null)} />
           )}
         </AnimatePresence>
+        <Analytics />
       </AppContext.Provider>
     </ThemeContext.Provider>
   );
